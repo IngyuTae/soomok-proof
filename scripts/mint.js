@@ -74,6 +74,7 @@ module.exports = async function(callback) {
     for await (const _ of Array(holder.amount).fill()) {
       const receipt = await contract.mintTo(holder.address);
       console.log(receipt);
+      await new Promise(resolve => setTimeout(resolve, 60000));
     }
   }
   console.log('minting done.')
